@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MbtiProfile from "./MbtiProfile";
 
-function MbtiResult() {
+function MbtiResult({name, mbti}) {
+  const [mbtiData, setMbtiData] = useState(null);
+
+  useEffect(()=>{
+    const fetchMbtiData = async () => {
+      try {
+        const response = await fetch('https://raw.githubusercontent.com/seik1224/data-zelda/main/mbti.json');
+        const data = await response.json();
+        console.log(data);
+
+        const result = data.find((item)=>item.type === mbti)
+        console.log(result);
+        setMbtiData(result);
+      } catch(err) {
+        console.error('MBTI오류', err);
+      }
+    }
+    fetchMbtiData();
+  }, [mbti]);
+
+
+   
   return (
     <div className="text-center">
       <div className="flex flex-col justify-center items-center relative z-10">
