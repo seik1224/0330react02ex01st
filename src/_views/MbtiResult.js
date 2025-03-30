@@ -21,7 +21,6 @@ function MbtiResult({name, mbti}) {
     fetchMbtiData();
   }, [mbti]);
 
-
    
   return (
     <div className="text-center">
