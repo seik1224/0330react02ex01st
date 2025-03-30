@@ -1,6 +1,7 @@
 import React from "react";
 
-function MbtiProfile() {
+function MbtiProfile({data}) {
+  console.log(data);
   const circleStyle = {
     background: `conic-gradient(black ${5 * 3.6}deg, #e0e0e0 0deg)`,
   };
@@ -18,7 +19,7 @@ function MbtiProfile() {
         >
           <div className="w-28 h-28 bg-white rounded-full absolute flex items-center justify-center">
             <p className="text-2xl font-bold" style={{ color: "black" }}>
-              <span className="text-base">type 비율</span>
+              <span className="text-base">{data.type} 비율</span>
               <br />
               5%
             </p>
